@@ -63,10 +63,50 @@ const Index = () => {
 
       {/* Hero Section */}
       <section id="hero" className="relative pt-32 pb-32 px-6 min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden">
-          <img src="/images/black-hole-gif.gif" alt="Background animation" className="w-auto h-3/4 object-contain" />
+        {/* Night sky background */}
+        <div className="absolute inset-0 bg-[#020b18]" />
+        <div
+          className="absolute inset-0 w-full h-full"
+          style={{
+            backgroundImage: `url('https://cdn.poehali.dev/projects/652631f5-666b-4641-aa51-f5e8d6942346/files/8ff9de55-a409-4bcd-8355-92a7279890cd.jpg')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.6,
+          }}
+        />
+        {/* Spinning Earth overlay */}
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+          <div
+            className="rounded-full border-2 border-blue-400/20 shadow-[0_0_120px_40px_rgba(56,189,248,0.15)]"
+            style={{
+              width: "600px",
+              height: "600px",
+              background: "radial-gradient(circle at 35% 35%, #1e3a5f 0%, #0a1628 60%, #020b18 100%)",
+              animation: "spin 40s linear infinite",
+              backgroundSize: "200% 200%",
+              boxShadow: "0 0 80px 20px rgba(56,189,248,0.1), inset 0 0 60px rgba(56,189,248,0.05)",
+            }}
+          />
         </div>
-        <div className="absolute inset-0 bg-black/70" />
+        {/* Stars */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {Array.from({ length: 80 }).map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full bg-white"
+              style={{
+                width: `${Math.random() * 2 + 1}px`,
+                height: `${Math.random() * 2 + 1}px`,
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                opacity: Math.random() * 0.7 + 0.2,
+                animation: `pulse ${Math.random() * 3 + 2}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 3}s`,
+              }}
+            />
+          ))}
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020b18]/90 via-[#020b18]/50 to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
