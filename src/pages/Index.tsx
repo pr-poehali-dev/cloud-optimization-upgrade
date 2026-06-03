@@ -117,13 +117,11 @@ const Index = () => {
               className={`relative h-96 lg:h-[550px] transition-all duration-1000 flex items-center justify-center ${visibleSections["hero"] ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-transparent to-transparent rounded-3xl blur-3xl animate-pulse" />
-              <div className="relative z-10 flex flex-col items-center justify-center gap-6">
-                <div className="text-9xl">🪙</div>
-                <div className="text-center">
-                  <div className="text-4xl font-black text-accent mb-2">StatoRT</div>
-                  <div className="text-white/60 text-lg">Игровая валюта</div>
-                </div>
-              </div>
+              <img
+                src="/omnius-logo.png"
+                alt="StatoRT"
+                className="w-full max-w-sm lg:max-w-md drop-shadow-2xl animate-float relative z-10"
+              />
             </div>
           </div>
         </div>
