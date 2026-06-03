@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Icon from "@/components/ui/icon";
+import AuthModal from "@/components/AuthModal";
 
 const Index = () => {
+  const navigate = useNavigate();
   const [visibleSections, setVisibleSections] = useState<Record<string, boolean>>({});
+  const [authOpen, setAuthOpen] = useState(false);
+
+  const storedUser = localStorage.getItem("statort_user");
+  const user = storedUser ? JSON.parse(storedUser) : null;
 
   useEffect(() => {
     const observers: Record<string, IntersectionObserver> = {};
@@ -51,10 +58,26 @@ const Index = () => {
             </a>
           </nav>
           <div className="flex gap-3">
-            <button className="px-5 py-2.5 text-sm font-medium border border-accent/40 rounded-full hover:border-accent/70 hover:bg-accent/10 transition-all">
-              Войти
-            </button>
-            <button className="px-5 py-2.5 text-sm font-medium bg-gradient-to-r from-accent via-accent to-accent/80 text-black rounded-full hover:shadow-lg hover:shadow-accent/40 transition-all font-semibold">
+            {user ? (
+              <button
+                onClick={() => navigate("/dashboard")}
+                className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium border border-accent/40 rounded-full hover:border-accent/70 hover:bg-accent/10 transition-all"
+              >
+                <Icon name="User" size={15} />
+                {user.nickname}
+              </button>
+            ) : (
+              <button
+                onClick={() => setAuthOpen(true)}
+                className="px-5 py-2.5 text-sm font-medium border border-accent/40 rounded-full hover:border-accent/70 hover:bg-accent/10 transition-all"
+              >
+                Войти
+              </button>
+            )}
+            <button
+              onClick={() => user ? navigate("/dashboard") : setAuthOpen(true)}
+              className="px-5 py-2.5 text-sm font-medium bg-gradient-to-r from-accent via-accent to-accent/80 text-black rounded-full hover:shadow-lg hover:shadow-accent/40 transition-all font-semibold"
+            >
               Купить валюту
             </button>
           </div>
@@ -387,6 +410,8 @@ const Index = () => {
           </button>
         </div>
       </section>
+
+      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
 
       {/* Footer */}
       <footer className="border-t border-accent/10 py-12 px-6 bg-background/50">

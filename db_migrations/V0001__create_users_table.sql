@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS t_p97001973_cloud_optimization_u.users (
+  id SERIAL PRIMARY KEY,
+  google_id VARCHAR(255) UNIQUE NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  name VARCHAR(255),
+  avatar VARCHAR(500),
+  nickname VARCHAR(50) UNIQUE,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);

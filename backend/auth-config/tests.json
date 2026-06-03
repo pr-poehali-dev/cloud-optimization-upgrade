@@ -1,0 +1,12 @@
+{
+  "tests": [
+    {
+      "name": "GET client_id",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {"client_id": "string"},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
