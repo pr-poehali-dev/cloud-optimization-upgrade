@@ -118,9 +118,9 @@ const Index = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-transparent to-transparent rounded-3xl blur-3xl animate-pulse" />
               <img
-                src="/omnius-logo.png"
+                src="https://cdn.poehali.dev/projects/652631f5-666b-4641-aa51-f5e8d6942346/files/1dd5aeb7-699a-46a2-b961-84ae1cfe8e0e.jpg"
                 alt="StatoRT"
-                className="w-full max-w-sm lg:max-w-md drop-shadow-2xl animate-float relative z-10"
+                className="w-full max-w-sm lg:max-w-md drop-shadow-2xl animate-float relative z-10 rounded-2xl"
               />
             </div>
           </div>
