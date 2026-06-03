@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Zap, Lock, TrendingUp, Cpu, Settings, Cloud, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import Icon from "@/components/ui/icon";
 
 const Index = () => {
   const [visibleSections, setVisibleSections] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
     const observers: Record<string, IntersectionObserver> = {};
-
     const sectionIds = ["hero", "features", "how", "pricing", "cta"];
 
     sectionIds.forEach((id) => {
@@ -36,20 +36,18 @@ const Index = () => {
       {/* Header */}
       <header className="fixed top-0 w-full bg-background/80 backdrop-blur-2xl border-b border-accent/20 z-50">
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-          <div className="flex items-center">
-            <div className="font-display font-bold text-2xl tracking-tighter bg-gradient-to-r from-white via-accent to-accent/80 bg-clip-text text-transparent">
-              AgentForge
-            </div>
+          <div className="font-display font-bold text-2xl tracking-tighter bg-gradient-to-r from-white via-accent to-accent/80 bg-clip-text text-transparent">
+            StatoRT
           </div>
           <nav className="hidden md:flex gap-10 text-sm font-medium">
             <a href="#features" className="text-muted-foreground hover:text-white transition-colors">
-              Возможности
+              Преимущества
             </a>
             <a href="#how" className="text-muted-foreground hover:text-white transition-colors">
-              Как это работает
+              Как купить
             </a>
             <a href="#pricing" className="text-muted-foreground hover:text-white transition-colors">
-              Тарифы
+              Пакеты
             </a>
           </nav>
           <div className="flex gap-3">
@@ -57,7 +55,7 @@ const Index = () => {
               Войти
             </button>
             <button className="px-5 py-2.5 text-sm font-medium bg-gradient-to-r from-accent via-accent to-accent/80 text-black rounded-full hover:shadow-lg hover:shadow-accent/40 transition-all font-semibold">
-              Попробовать
+              Купить валюту
             </button>
           </div>
         </div>
@@ -66,11 +64,10 @@ const Index = () => {
       {/* Hero Section */}
       <section id="hero" className="relative pt-32 pb-32 px-6 min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden">
-          <img src="/images/black-hole-gif.gif" alt="Black hole animation" className="w-auto h-3/4 object-contain" />
+          <img src="/images/black-hole-gif.gif" alt="Background animation" className="w-auto h-3/4 object-contain" />
         </div>
         <div className="absolute inset-0 bg-black/70" />
 
-        {/* Content overlay */}
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div
@@ -78,41 +75,40 @@ const Index = () => {
             >
               <div className="mb-8 inline-block">
                 <span className="text-xs font-medium tracking-widest text-accent/80 uppercase">
-                  AI-инфраструктура нового поколения
+                  Маркетплейс игровой валюты
                 </span>
               </div>
               <h1 className="text-6xl lg:text-7xl font-display font-black leading-tight mb-8 tracking-tighter">
                 <span className="bg-gradient-to-br from-white via-white to-accent/40 bg-clip-text text-transparent">
-                  Создавай. Запускай.
+                  Игровая валюта.
                 </span>
                 <br />
-                <span className="text-accent">Автоматизируй.</span>
+                <span className="text-accent">Быстро и выгодно.</span>
               </h1>
               <p className="text-xl text-white/80 leading-relaxed mb-10 max-w-xl font-light">
-                AgentForge позволяет создавать, разворачивать и масштабировать умных AI-агентов.
-                От идеи до продакшена за минуты, а не месяцы.
+                StatoRT — маркетплейс для покупки игровой валюты по лучшим ценам. Мгновенное зачисление, безопасные платежи, поддержка 24/7.
               </p>
               <div className="flex gap-4 mb-12 flex-col sm:flex-row">
                 <button className="group px-8 py-4 bg-gradient-to-r from-accent to-accent/90 text-black rounded-full hover:shadow-2xl hover:shadow-accent/50 transition-all font-semibold text-lg flex items-center gap-3 justify-center">
-                  Запустить сейчас
+                  Купить сейчас
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
                 </button>
                 <button className="px-8 py-4 border border-accent/40 rounded-full hover:border-accent/70 hover:bg-accent/10 transition-all font-medium text-lg text-white">
-                  Смотреть демо
+                  Смотреть пакеты
                 </button>
               </div>
               <div className="grid grid-cols-3 gap-8 pt-8 border-t border-white/10">
                 <div>
-                  <div className="text-2xl font-bold text-accent mb-2">10 000+</div>
-                  <p className="text-sm text-white/60">Активных агентов</p>
+                  <div className="text-2xl font-bold text-accent mb-2">50 000+</div>
+                  <p className="text-sm text-white/60">Довольных игроков</p>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white mb-2">500 000+</div>
-                  <p className="text-sm text-white/60">Выполненных задач</p>
+                  <div className="text-2xl font-bold text-white mb-2">1 000 000+</div>
+                  <p className="text-sm text-white/60">Успешных заказов</p>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-accent mb-2">99.99%</div>
-                  <p className="text-sm text-white/60">Аптайм</p>
+                  <div className="text-2xl font-bold text-accent mb-2">~2 мин</div>
+                  <p className="text-sm text-white/60">Среднее зачисление</p>
                 </div>
               </div>
             </div>
@@ -121,11 +117,13 @@ const Index = () => {
               className={`relative h-96 lg:h-[550px] transition-all duration-1000 flex items-center justify-center ${visibleSections["hero"] ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-transparent to-transparent rounded-3xl blur-3xl animate-pulse" />
-              <img
-                src="/omnius-logo.png"
-                alt="Omnius Agent"
-                className="w-full max-w-sm lg:max-w-md drop-shadow-2xl animate-float relative z-10"
-              />
+              <div className="relative z-10 flex flex-col items-center justify-center gap-6">
+                <div className="text-9xl">🪙</div>
+                <div className="text-center">
+                  <div className="text-4xl font-black text-accent mb-2">StatoRT</div>
+                  <div className="text-white/60 text-lg">Игровая валюта</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -137,10 +135,10 @@ const Index = () => {
           <div
             className={`text-center mb-20 transition-all duration-1000 ${visibleSections["features"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
-            <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">Возможности</span>
+            <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">Преимущества</span>
             <h2 className="text-5xl lg:text-6xl font-display font-black tracking-tighter mt-4 mb-6">
               <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
-                Суперсилы встроены
+                Почему StatoRT?
               </span>
             </h2>
           </div>
@@ -148,47 +146,48 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: Zap,
-                title: "Молниеносный деплой",
-                desc: "Развертывание в продакшен одним кликом без настройки",
+                icon: "Zap",
+                title: "Мгновенное зачисление",
+                desc: "Валюта поступает на аккаунт в течение 2 минут после оплаты",
               },
               {
-                icon: Cpu,
-                title: "Умный AI-движок",
-                desc: "Продвинутые возможности рассуждения, которые учатся и адаптируются",
+                icon: "Shield",
+                title: "Безопасные платежи",
+                desc: "Все транзакции защищены шифрованием. Ваши данные в безопасности",
               },
               {
-                icon: TrendingUp,
-                title: "Автомасштабирование",
-                desc: "Автоматическое масштабирование ресурсов на основе нагрузки",
+                icon: "TrendingDown",
+                title: "Лучший курс",
+                desc: "Ежедневно обновляем цены, чтобы предложить самый выгодный курс на рынке",
               },
               {
-                icon: Lock,
-                title: "Корпоративная безопасность",
-                desc: "Банковское шифрование и соответствие SOC2, GDPR, HIPAA",
+                icon: "Headphones",
+                title: "Поддержка 24/7",
+                desc: "Наша команда всегда на связи — решим любой вопрос за несколько минут",
               },
               {
-                icon: Settings,
-                title: "Гибкие сценарии",
-                desc: "Создавайте сложные цепочки автоматизации в визуальном редакторе",
+                icon: "CreditCard",
+                title: "Удобная оплата",
+                desc: "Карты, электронные кошельки, криптовалюта — выбирайте удобный способ",
               },
               {
-                icon: Cloud,
-                title: "Мультиоблачность",
-                desc: "Разворачивайте где угодно - AWS, Azure, GCP или своя инфраструктура",
+                icon: "RefreshCw",
+                title: "Гарантия возврата",
+                desc: "Не получили валюту? Вернём деньги в течение 24 часов без лишних вопросов",
               },
             ].map((item, i) => {
-              const Icon = item.icon;
               const isVisible = visibleSections["features"];
               return (
                 <div
                   key={i}
-                  className={`group p-8 border border-accent/10 hover:border-accent/40 rounded-2xl bg-card/50 hover:bg-card/80 transition-all duration-500 cursor-pointer backdrop-blur-sm ${
+                  className={`group p-8 border border-accent/10 hover:border-accent/40 rounded-2xl bg-card/50 hover:bg-card/80 transition-all duration-700 ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                   }`}
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
-                  <Icon className="w-10 h-10 mb-6 text-accent group-hover:scale-110 transition-transform" />
+                  <div className="w-12 h-12 bg-accent/15 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/25 transition-colors">
+                    <Icon name={item.icon} fallback="Star" className="text-accent" size={22} />
+                  </div>
                   <h3 className="font-display font-bold text-xl mb-3">{item.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
@@ -207,17 +206,17 @@ const Index = () => {
             <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">Процесс</span>
             <h2 className="text-5xl lg:text-6xl font-display font-black tracking-tighter mt-4">
               <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
-                От нуля до героя
+                Купить за 4 шага
               </span>
             </h2>
           </div>
 
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { num: "01", title: "Проектируй", desc: "Определите возможности агента в интуитивном конструкторе" },
-              { num: "02", title: "Обучай", desc: "Загрузите данные и примеры для настройки поведения" },
-              { num: "03", title: "Запускай", desc: "Запуск в продакшен одним кликом" },
-              { num: "04", title: "Масштабируй", desc: "Автомасштабирование обрабатывает миллионы запросов" },
+              { num: "01", title: "Выбери пакет", desc: "Выберите нужное количество игровой валюты из наших пакетов" },
+              { num: "02", title: "Введи ник", desc: "Укажите игровой никнейм или ID аккаунта для зачисления" },
+              { num: "03", title: "Оплати", desc: "Выберите удобный способ оплаты и завершите покупку" },
+              { num: "04", title: "Получи", desc: "Валюта поступает на аккаунт автоматически в течение 2 минут" },
             ].map((step, i) => {
               const isVisible = visibleSections["how"];
               return (
@@ -253,10 +252,10 @@ const Index = () => {
           <div
             className={`text-center mb-20 transition-all duration-1000 ${visibleSections["pricing"] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
-            <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">Тарифы</span>
+            <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">Пакеты</span>
             <h2 className="text-5xl lg:text-6xl font-display font-black tracking-tighter mt-4">
               <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
-                Простые цены
+                Выбери свой пакет
               </span>
             </h2>
           </div>
@@ -265,14 +264,16 @@ const Index = () => {
             {[
               {
                 name: "Стартовый",
-                price: "4 900 \u20bd/\u043c\u0435\u0441",
-                features: ["До 10 агентов", "100 000 запросов/месяц", "Поддержка сообщества", "Базовая аналитика"],
+                price: "299 ₽",
+                badge: "",
+                features: ["1 000 монет StatoRT", "Зачисление за 2 минуты", "Поддержка 24/7", "Гарантия возврата"],
                 highlight: false,
               },
               {
-                name: "Корпоративный",
-                price: "По запросу",
-                features: ["Безлимитные агенты", "Безлимитные запросы", "Поддержка 24/7", "Индивидуальные интеграции"],
+                name: "Популярный",
+                price: "799 ₽",
+                badge: "Выгоднее на 30%",
+                features: ["3 500 монет StatoRT", "Зачисление за 2 минуты", "Приоритетная поддержка", "Бонус +500 монет"],
                 highlight: true,
               },
             ].map((plan, i) => {
@@ -294,7 +295,14 @@ const Index = () => {
                     }`}
                   >
                     <div>
-                      <h3 className="font-display font-bold text-2xl mb-2">{plan.name}</h3>
+                      <div className="flex items-center gap-3 mb-2">
+                        <h3 className="font-display font-bold text-2xl">{plan.name}</h3>
+                        {plan.badge && (
+                          <span className="text-xs font-semibold bg-accent/20 text-accent px-3 py-1 rounded-full border border-accent/30">
+                            {plan.badge}
+                          </span>
+                        )}
+                      </div>
                       <p className="text-4xl font-black text-accent mb-8">{plan.price}</p>
                       <ul className="space-y-4 mb-10">
                         {plan.features.map((f, j) => (
@@ -312,7 +320,7 @@ const Index = () => {
                           : "border border-accent/20 hover:border-accent/40 hover:bg-accent/5"
                       }`}
                     >
-                      {plan.highlight ? "Связаться с нами" : "Попробовать бесплатно"}
+                      {plan.highlight ? "Купить популярный" : "Купить стартовый"}
                     </button>
                   </div>
                 </div>
@@ -329,14 +337,14 @@ const Index = () => {
         >
           <h2 className="text-5xl lg:text-6xl font-display font-black tracking-tighter mb-6">
             <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
-              Готовы создавать?
+              Готов прокачать аккаунт?
             </span>
           </h2>
           <p className="text-xl text-muted-foreground mb-12 font-light max-w-2xl mx-auto">
-            Присоединяйтесь к тысячам разработчиков, которые строят будущее с AgentForge.
+            Присоединяйтесь к 50 000 игроков, которые уже покупают валюту на StatoRT. Быстро, безопасно, выгодно.
           </p>
           <button className="group px-10 py-5 bg-gradient-to-r from-accent to-accent/90 text-black rounded-full hover:shadow-2xl hover:shadow-accent/40 transition-all font-bold text-lg flex items-center gap-3 mx-auto">
-            Начать бесплатно
+            Купить валюту сейчас
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition" />
           </button>
         </div>
@@ -345,7 +353,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-accent/10 py-12 px-6 bg-background/50">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-muted-foreground">
-          <p>© 2025 AgentForge — Создавайте умных агентов</p>
+          <p>© 2025 StatoRT — Маркетплейс игровой валюты</p>
           <div className="flex gap-8">
             <a href="#" className="hover:text-white transition-colors">
               Конфиденциальность
@@ -354,7 +362,7 @@ const Index = () => {
               Условия
             </a>
             <a href="#" className="hover:text-white transition-colors">
-              Документация
+              Поддержка
             </a>
             <a href="#" className="hover:text-white transition-colors">
               Контакты
